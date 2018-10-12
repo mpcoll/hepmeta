@@ -1,0 +1,104 @@
+---
+title: "Heartbeat evoked potential meta-analysis"
+output: html_notebook
+---
+
+## Initialisation
+
+```{r}
+# Clear everything
+rm(list=ls())
+
+# Use pacman to install/load packages
+library(pacman)
+
+# Load packages
+p_load("RISmed", "easyPubMed", "rentrez")
+
+
+```
+
+
+# Pubmed search
+
+```{r}
+
+# Build search strings for pubmed queries
+searches <- list()
+searches[1] <- EUtilsSummary('heartbeat-evoked potential')
+searches[2] <- EUtilsSummary('heartbeat-evoked brain potential')
+searches[3] <- EUtilsSummary('heartbeat evoked potential')
+searches[4] <- EUtilsSummary('heartbeat-related brain potential')
+searches[5] <- EUtilsSummary('heart action-related EEG potential')
+
+#Additional papers found in references lists but not picked up by searches: find using Pubmed ID
+#searches[6] <- EUtilsSummary('', db='pubmed')
+
+#Initialise empty frame
+pubmed_data_all = data.frame()
+
+#Perform all searches
+for (s in 1:length(searches)){
+
+  search = searches[[s]]
+  
+  # Get results
+  results <-EUtilsGet(search, type='efetch')
+  
+
+  
+  # Make into a data frame
+  authors <- unname(sapply(Author(results), '[[','LastName'))
+  authors <- lapply(authors, function(x) paste(x, sep = "-", collapse=", " )) 
+  pubmed_data <- data.frame('ref_authors'= as.character(authors),'ref_year'=YearPpublish(results), 'ref_acceptyear'=YearPubmed(results), 'ref_title'=ArticleTitle(results), 'ref_journal'=Title(results), 
+                            'ref_abstract'=AbstractText(results), 'ref_pmid'=PMID(results), 'ref_query'=Query(results))
+  
+  # Remove commas from abstracts for CSV
+  pubmed_data$ref_abstract <- as.character(pubmed_data$ref_abstract)
+  pubmed_data$ref_abstract <- gsub(",", " ", pubmed_data$ref_abstract, fixed = TRUE)
+  
+  
+  # Get publication year from other package
+  for (id in pubmed_data$ref_pmid) 
+    {
+    
+    paper <- article_to_df(articles_to_list(fetch_pubmed_data(get_pubmed_ids(id))))
+   
+    pmid_summary <-entrez_summary(db="pubmed", id=id)
+    article_ids <- extract_from_esummary(pmid_summary, "articleids")
+
+    
+    pubmed_data$ref_year[pubmed_data$ref_pmid == id] <- as.numeric(paper$year[1])
+    pubmed_data$ref_doi[pubmed_data$ref_pmid == id] <-     article_ids$value[2]
+
+    }
+  
+  
+  
+  # Merge searches
+  if (s == 1){
+    pubmed_data_all <- pubmed_data
+  }else{
+    pubmed_data_all <- rbind(pubmed_data_all, pubmed_data)
+  }
+}
+
+# Total number of paper
+prisma_total_database <- nrow(pubmed_data_all)
+
+#Find duplicates and count them
+prisma_duplicates <- prisma_total_database-length(unique(pubmed_data_all$ref_title))
+
+#Remove duplicates
+pubmed_data_nodup <- pubmed_data_all[!duplicated(pubmed_data_all$ref_title),]
+
+# Export to csv for filling the spreadsheet during review (ONLY NEED TO DO THIS ONCE BEFORE DOING THE REVIEW)
+write.csv(pubmed_data_nodup, paste('HEPreview_fetch', date(), '.csv', sep = ""))
+```
+
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
