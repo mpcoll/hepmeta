@@ -1,0 +1,28 @@
+corr_studycode,corr_hep,corr_var2,corr_test,corr_timewin,corr_locations,corr_n,corr_coeff,corr_nonsigassumed,corr_notes,corr_excludemeta,corr_multitwin
+Pollatos2004,mean amplitude,hbcounting score,spearman,250-350,C4,44,0.28,0,,0,0
+Baranauskas2017,mean amplitude,quest_MAIA_notworry,pearson,,,,,0,only kept noticing and body listening as the more related to interoception,1,0
+Baranauskas2017,mean amplitude,quest_MAIA_noticing,pearson,400-545,F3-FZ-F4-C3-CZ-C4-P3-PZ-P4-O1-OZ-O2,30,0.08,0,only kept noticing and body listening as the more related to interoception,0,0
+Baranauskas2017,mean amplitude,quest_MAIA_notdistracting,pearson,,,,,0,only kept noticing and body listening as the more related to interoception,1,0
+Baranauskas2017,mean amplitude,quest_MAIA_attention regulation,pearson,,,,,0,only kept noticing and body listening as the more related to interoception,1,0
+Baranauskas2017,mean amplitude,quest_MAIA_emotionalawareness,pearson,,,,,0,only kept noticing and body listening as the more related to interoception,1,0
+Baranauskas2017,mean amplitude,quest_MAIA_selfregulation,pearson,,,,,0,only kept noticing and body listening as the more related to interoception,1,0
+Baranauskas2017,mean amplitude,quest_MAIA_bodylistening,pearson,400-600,F3-FZ-F4-C3-CZ-C4-P3-PZ-P4-O1-OZ-O2,30,0.12,0,only kept noticing and body listening as the more related to interoception,0,0
+Baranauskas2017,mean amplitude,quest_MAIA_trusting,pearson,,,,,,only kept noticing and body listening as the more related to interoception,1,0
+Katkin1991,peak amplitude,hbdetection deviation,spearman,100-150,F8;F7;CZ;FZ,12,-0.75;-0.25;0.12;0.01,0,not counting accuracy but SD of prefered interval,0,0
+Mai2018,mean amplitude,hbcounting score,spearman,360-500,FC3-FC5; FC4-FC6,46,0.492;0.306,0,,0,0
+Mai2018,mean amplitude,hbcounting confdence,spearman,360-500,FC3-FC5; FC4-FC6,46,0.002;0.002,1,,0,0
+Marshall2017exp1,mean amplitude,hbcounting score,spearman,200-300,F1-FZ-F2-FC1-FCZ-FC2,25,-0.18,0,,0,0
+Marshall2017exp2,mean amplitude,hbcounting score,spearman,200-300,F1-FZ-F2-FC1-FCZ-FC2,24,-0.09,0,,0,0
+Marshall2018exp1,mean amplitude,hbcounting score,spearman,200-300,F1-FZ-F2-FC1-FCZ-FC2,25,-0.17,0,,0,0
+Marshall2018exp2,mean amplitude,hbcounting score,spearman,200-300,F1-FZ-F2-FC1-FCZ-FC2,25,-0.12,0,,0,0
+Schandry1987,ERP-stability,hbcounting score,,,,,,,not erp amplitude but maybe report in text,1,0
+Schulz2015b,mean amplitude,heartbeatcounting score,pearson,455-595,CZ-FZ,47,0.151,0,,0,0
+Schulz2015b,mean amplitude,heartbeatdetection score,pearson,455-595,CZ-FZ,47,0.005,0,,0,0
+Sel2018,amplitude difference,heartbeatcounting score,pearson,195-289,FC4-FC6-C4-C6,23,-0.632,0,not sure if we should include this as it isn't really correlating accuracy with the HEP,1,0
+Terhaar2012,mean amplitude,heartbeatcounting score,pearson,128-264,all,30,0.22,0,only kept attention condition,0,0
+Terhaar2012,mean amplitude,heartbeatcounting score,pearson,356-456,all,30,0.17,0,only kept attention condition,0,1
+Terhaar2012,mean amplitude,heartbeatcounting score,pearson,536-592,all,30,0.15,0,only kept attention condition,0,1
+Müller2016,mean amplitude,emotion regulation,pearson,495-595,PZ-OZ-CZ-FZ,84,-0.3,0,not interoception so not included,1,0
+Pollatos2017,mean amplitude,heartbeatcounting score,pearson,400-600,FC5-C6,15,-0.36,0,,1,0
+Pollatos2017,mean amplitude,heartbeatcounting score,pearson,400-600,FC5-C6,15,0.08,0,"kept occipital stimulation as the more ""baseline"" condition",0,0
+Pollatos2017,mean amplitude,heartbeatcounting score,pearson,400-600,FC5-C6,15,-0.28,0,,1,0
