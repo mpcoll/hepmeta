@@ -1,0 +1,5 @@
+train_studycode_FINAL,train_type_FINAL,train_test_FINAL,train_timewin_FINAL,train_locations_FINAL,train_dfeffect_FINAL,train_dferror_FINAL,train_fvalue_FINAL,train_direction_FINAL,train_inter_FINAL,train_interfactor_FINAL,train_nonsigassumed_FINAL,train_notes_FINAL
+Canales-Johnson2015,tappingfeedback pre vs post,anova,200-450,C1-C3-FC1-FC3-FC5-F3-FCZ-F1-FZ-F2-AFZ-C2-C4-FC2-FC4-FC6-F4,1,31,0.47,train is lower,yes,learning group,1,"do not report pre-post test for whole group, assumed negative"
+García-Cordero2017,tappingfeedback pre vs post,permttest,200-500,C3-FC1-F3; Fz-FCz-AFz; C4-FC2-F4,31,49,0.46;0.46;0.46,train is lower,no,,1,
+Huang2018,hrv biofeedback vs emg,anova,200-300,CZ-F3-FZ-PZ,1,23,12.680721,train is higher,yes,learning group,0,t-test for group diff in session 4 taken; electrode was selected for each participant but entered all electrodes selected
+Schandry1991,constant tone vs. fading tone,anova,200-350,F8;FZ;F7;CZ,1,14,0.48;7.3441;5.6169;0.48,post training for constant higher,yes,feedback type,0,
